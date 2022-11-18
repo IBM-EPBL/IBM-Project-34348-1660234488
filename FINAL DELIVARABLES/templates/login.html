@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Plasma Donor App</title>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+	<!link rel="stylesheet" href="style.css">
+
+<style>
+.login{
+top: 20%;
+}
+.body{
+	background-color:blueviolet;
+}
+</style>
+</head>
+
+<body>
+<div class="header">
+<div>Plasma Donor App</div>
+	<ul>
+		
+		
+		
+		<li><a href="/registration">Register</a></li>
+		<li><a class="active" href="/login">Home</a></li>
+	</ul>
+</div>
+ <div class="login" >
+		<div>
+		</div>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('loginpage')}}"method="post">
+    	<input type="text" name="user" placeholder="Enter UserName" required="required" style="color:black" />
+        <input type="password" name="passw" placeholder="Enter Password" required="required" style="color:black" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
+    
+    </form>
+<br><br>
+<div style="color:black">
+ {{ pred }}</div>
+ </div>
+
+</body>
+<script>
+	window.watsonAssistantChatOptions = {
+	  integrationID: "71e84344-0c89-4cac-9d6c-7e86d017dae8", // The ID of this integration.
+	  region: "au-syd", // The region your integration is hosted in.
+	  serviceInstanceID: "65756d77-4d9c-4efd-84d1-6a58db332b93", // The ID of your service instance.
+	  onLoad: function(instance) { instance.render(); }
+	};
+	setTimeout(function(){
+	  const t=document.createElement('script');
+	  t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+	  document.head.appendChild(t);
+	});
+  </script>
+</html>
+
